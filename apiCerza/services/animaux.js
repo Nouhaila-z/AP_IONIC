@@ -38,10 +38,10 @@ async function getAnimalId(id) {
 async function create(animal) {
   const result = await db.query(
     `INSERT INTO animaux
-        (libelle,poids,gestation,region,alimentation)
+        (animaux_libelle,animaux_poids,animaux_gestation,animaux_regions_id,animaux_alimentation_id)
         VALUES
         (?,?,?,?,?)`,
-    [animal.animaux_libelle,animal.animaux_poids,animal.animaux_gestation,animal.animaux_region_id,animal.animaux_alimentation_id]
+    [animal.animaux_libelle,animal.animaux_poids,animal.animaux_gestation,animal.animaux_regions_id,animal.animaux_alimentation_id]
   );
 
   let message = "Animal créer";
@@ -55,7 +55,7 @@ async function update(id, animal) {
     `UPDATE animaux
       SET animaux_libelle = ?, animaux_poids = ?, animaux_gestation = ?, animaux_region_id = ?, animaux_alimentation_id = ?
       WHERE id=?`,
-    [animal.animaux_libelle,animal.animaux_poids,animal.animaux_gestation,animal.animaux_region_id,animal.animaux_alimentation_id, id]
+    [animal.animaux_libelle,animal.animaux_poids,animal.animaux_gestation,animal.animaux_regions_id,animal._id, id]
   );
 
   let message = "Erreur dans la mise à jour ";

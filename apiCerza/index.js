@@ -2,7 +2,8 @@ const express = require('express'); //express
 const bodyParser = require('body-parser'); //analyser JSON
 const app = express();
 const port = 3000;
-const animaux = require('./routes/animaux'); //appelle route jeux
+const animaux = require('./routes/animaux'); //appelle route animaux
+const missions = require('./routes/missions'); //appelle la route mission
 
 
 
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/animaux', animaux);
+app.use('/missions',missions);
 
 
 
