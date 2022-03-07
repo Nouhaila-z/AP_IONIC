@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 const animaux = require('./routes/animaux'); //appelle route animaux
 const missions = require('./routes/missions'); //appelle la route mission
+const alertes = require('./routes/alertes'); //appelle la route alerte
 
 
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.use('/animaux', animaux);
 app.use('/missions',missions);
+app.use('/alertes',alertes)
 
 
 

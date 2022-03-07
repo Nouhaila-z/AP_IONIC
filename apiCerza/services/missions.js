@@ -23,7 +23,7 @@ async function getMissionId(id) {
   const rows = await db.query(
     `SELECT *
         FROM missions
-      WHERE id=?`,
+      WHERE missions_id=?`,
     [id]
   );
 
@@ -54,7 +54,7 @@ async function update(id, mission) {
   const result = await db.query(
     `UPDATE mission
       SET missions_titre = ?, missions_etat = ?, missions_commentaire = ?, missions_users_id = ?, missions_enclos_id = ?, missions_pensionnaires_id
-      WHERE id=?`,
+      WHERE missions_id=?`,
     [mission.missions_titre,mission.missions_etat,mission.missions_commentaire,mission.missions_user_id,mission.missions_enclos_id,mission.missions_pensionnaires_id, id]
   );
 
@@ -69,7 +69,7 @@ async function update(id, mission) {
 
 //supprime une mission
 async function remove(id) {
-  const result = await db.query(`DELETE FROM missions WHERE id=?`, [id]);
+  const result = await db.query(`DELETE FROM missions WHERE missions_id=?`, [id]);
 
   let message = "Erreur dans la suppression";
 

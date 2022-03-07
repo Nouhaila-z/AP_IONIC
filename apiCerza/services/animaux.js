@@ -81,12 +81,12 @@ async function create(animal) {
   return { message };
 }
 
-//mets à jour une mission
+//mets à jour un animal
 async function update(id, animal) {
   const result = await db.query(
     `UPDATE animaux
       SET animaux_libelle = ?, animaux_poids = ?, animaux_gestation = ?, animaux_region_id = ?, animaux_alimentation_id = ?
-      WHERE id=?`,
+      WHERE animaux_id=?`,
     [animal.animaux_libelle,animal.animaux_poids,animal.animaux_gestation,animal.animaux_regions_id,animal._id, id]
   );
 
@@ -99,9 +99,9 @@ async function update(id, animal) {
   return { message };
 }
 
-//supprime une mission
+//supprime un animal
 async function remove(id) {
-  const result = await db.query(`DELETE FROM animaux WHERE id=?`, [id]);
+  const result = await db.query(`DELETE FROM animaux WHERE animaux_id=?`, [id]);
 
   let message = "Erreur dans la suppression";
 
