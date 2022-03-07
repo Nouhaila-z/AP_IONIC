@@ -23,8 +23,40 @@ async function getAnimalId(id) {
   const rows = await db.query(
     `SELECT *
         FROM animaux
-      WHERE id=?`,
+      WHERE animaux_id=?`,
     [id]
+  );
+
+  const data = helper.emptyOrRows(rows);
+
+  return {
+    data,
+  };
+}
+
+//afficher les animaux par régions
+async function getAnimauxByRegion(region){
+  const rows = await db.query(
+    `SELECT *
+    FROM animaux
+    WHERE animaux_regions_id=?`,
+    [region]
+  );
+
+  const data = helper.emptyOrRows(rows);
+
+  return {
+    data,
+  };
+}
+
+//afficher les animaux par alimentations
+async function getAnimauxByAlimentation(alimentation){
+  const rows = await db.query(
+    `SELECT *
+    FROM animaux
+    WHERE animaux_alimentation_id=?`,
+    [alimentation]
   );
 
   const data = helper.emptyOrRows(rows);
@@ -83,6 +115,8 @@ async function remove(id) {
 module.exports = {
   getAnimaux,
   getAnimalId,
+  getAnimauxByRegion,
+  getAnimauxByAlimentation,
   create,
   update,
   remove,

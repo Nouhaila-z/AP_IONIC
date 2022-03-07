@@ -1,4 +1,5 @@
 const express = require('express');
+const { route } = require('express/lib/application');
 const router = express.Router();
 const mission = require('../services/animaux'); //récupérer les functions
 
@@ -15,6 +16,24 @@ router.get('/', async function(req, res, next) {
 router.get('/:id', async function(req, res,next){
     try {
         res.json(await mission.getAnimalId(req.params.id));
+    } catch (err) {
+        console.error(`Erreur`,err.message);
+        next(err);
+    }
+});
+
+router.get('/region/:id', async function(req, res,next){
+    try {
+        res.json(await mission.getAnimauxByRegion(req.params.id));
+    } catch (err) {
+        console.error(`Erreur`,err.message);
+        next(err);
+    }
+});
+
+router.get('/alimentation/:id', async function(req, res,next){
+    try {
+        res.json(await mission.getAnimauxByAlimentation(req.params.id));
     } catch (err) {
         console.error(`Erreur`,err.message);
         next(err);
