@@ -1,7 +1,0 @@
-{
-  "name": "AP_cerza",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
