@@ -1,7 +1,7 @@
 const express = require("express");
 const { route } = require("express/lib/application");
 const router = express.Router();
-const pensionnaire = require("../services/animaux"); //récupérer les functions
+const pensionnaire = require("../services/pensionnaires"); //récupérer les functions
 
 /* GET pensionnaires */
 router.get("/", async function (req, res, next) {
@@ -24,7 +24,7 @@ router.get("/:id", async function (req, res, next) {
 
 router.get("/animaux/:id", async function (req, res, next) {
   try {
-    res.json(await pensionnaire.getPensionnairesxByAnimaux(req.params.id));
+    res.json(await pensionnaire.getPensionnairesByAnimaux(req.params.id));
   } catch (err) {
     console.error(`Erreur`, err.message);
     next(err);
@@ -33,7 +33,7 @@ router.get("/animaux/:id", async function (req, res, next) {
 
 router.get("/etats/:id", async function (req, res, next) {
   try {
-    res.json((await pensionnaire.getPensionnairesByEtats) < req.params.id);
+    res.json(await pensionnaire.getPensionnairesByEtats(req.params.id));
   } catch (err) {
     console.error(`Erreur`, err.message);
     next(err);

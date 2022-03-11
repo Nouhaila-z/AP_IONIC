@@ -19,7 +19,7 @@ async function getPensionnaires(page = 1) {
 }
 
 //on recupere les pensionnaires par animal
-async function getPensionnairesByAnimaux(page = 1) {
+async function getPensionnairesByAnimaux(id) {
   const rows = await db.query(
     `SELECT *
             FROM pensionnaires
@@ -35,7 +35,7 @@ async function getPensionnairesByAnimaux(page = 1) {
 }
 
 //recupere les pensionnaires par etats de santé
-async function getPensionnairesByEtats(page = 1) {
+async function getPensionnairesByEtats(id) {
   const rows = await db.query(
     `SELECT *
             FROM pensionnaires
