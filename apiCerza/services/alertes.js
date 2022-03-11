@@ -18,6 +18,7 @@ async function getAlertes(page = 1) {
   };
 }
 
+
 //afficher un animal par id
 async function getAlerteId(id) {
   const rows = await db.query(

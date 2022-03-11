@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Alertes </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Liste des Alertes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let alerte  of alertes">
+    <ion-card-header>
+      <p *ngIf=" alerte.alertes_niveaux_id == '4'" ><ion-icon size="large" color="danger" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="danger"name="radio-button-on-outline"></ion-icon></p>
+      <p *ngIf=" alerte.alertes_niveaux_id == '3'" ><ion-icon size="large" color="warning" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="warning"name="radio-button-on-outline"></ion-icon></p>
+      <p *ngIf=" alerte.alertes_niveaux_id == '2'" ><ion-icon size="large" color="success" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="success" name="radio-button-on-outline"></ion-icon></p>
+      <p *ngIf=" alerte.alertes_niveaux_id == '1'" ><ion-icon size="large" color="medium" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="medium"name="radio-button-on-outline"></ion-icon></p>
+      <ion-card-title>{{ alerte.alertes_libelle }} </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content> {{ alerte.alertes_description }} </ion-card-content>
+  </ion-card>
+</ion-content>
