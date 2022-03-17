@@ -8,9 +8,10 @@ const alertes = require('./routes/alertes'); //appelle la route alerte
 const pensionnaires = require('./routes/pensionnaires'); //appelle la route alerte
 const users = require('./routes/users'); //appelle la route user
 const login = require('./routes/login'); //appele la route login
+const cors = require('cors');
 
 
-
+app.use(cors());
 app.use(bodyParser.json()); //pour le HTML
 
 app.use(

@@ -22,4 +22,8 @@
 
     <ion-card-content> {{ alerte.alertes_description }} </ion-card-content>
   </ion-card>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+
+  <ion-fab-button color="success" (click)="addAlerte()"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+  </ion-fab>
 </ion-content>
