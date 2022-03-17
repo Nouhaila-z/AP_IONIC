@@ -45,9 +45,9 @@ export class AjouterAlertePage {
   submit() {
     this.http.post("http://localhost:3000/alertes", this.alerte).subscribe((res: any) => {
       console.log(res);
-      this.toastCtrl.create({ duration: 3000, message: "Created " }).then(t => t.present());
+      this.toastCtrl.create({ duration: 3000, message: "l'Alerte " + this.alerte.alertes_libelle + " a été créée" }).then(t => t.present());
     });
     this.modalCtrl.dismiss(this.alerte);
   }
 
-}
+} 
