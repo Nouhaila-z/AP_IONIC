@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'ajouter-alerte',
     loadChildren: () => import('./ajouter-alerte/ajouter-alerte.module').then( m => m.AjouterAlertePageModule)
+  },
+  {
+    path: 'modifier-alerte',
+    loadChildren: () => import('./modifier-alerte/modifier-alerte.module').then( m => m.ModifierAlertePageModule)
   }
 
 

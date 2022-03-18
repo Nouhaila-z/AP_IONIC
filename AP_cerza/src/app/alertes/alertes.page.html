@@ -21,6 +21,8 @@
     </ion-card-header>
 
     <ion-card-content> {{ alerte.alertes_description }} </ion-card-content>
+    <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
+    <ion-button (click)="UpdateAlerte(alerte)"><ion-icon name="create-outline"></ion-icon></ion-button>
   </ion-card>
   <ion-fab vertical="top" horizontal="end" slot="fixed">
 

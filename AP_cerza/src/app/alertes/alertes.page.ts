@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController, ModalController, NavParams, ToastController, AlertController } from '@ionic/angular';
 import { AjouterAlertePage } from '../ajouter-alerte/ajouter-alerte.page';
+import { ModifierAlertePage } from '../modifier-alerte/modifier-alerte.page';
 
 @Component({
   selector: 'app-alertes',
@@ -35,6 +36,9 @@ ngOnInit(){
 }
   addAlerte() {
     this.modalCtrl.create({ component: AjouterAlertePage }).then(modalres => { modalres.present(); modalres.onDidDismiss().then(res => { if (res.data != null) { this.afficherAlertes(); } }) })
+  }
+  UpdateAlerte(alerte) {
+    this.modalCtrl.create({ component: ModifierAlertePage, componentProps: alerte }).then(modalres => { modalres.present(); modalres.onDidDismiss().then(res => { if (res.data != null) { this.afficherAlertes(); } }) })
   }
 
 
