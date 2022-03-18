@@ -10,22 +10,79 @@
       <ion-title size="large">Liste des Alertes</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-card *ngFor="let alerte  of alertes">
+<img src="../../assets/icon/logo.svg"/>
+  <ion-card class="card" *ngFor="let alerte  of alertes">
     <ion-card-header>
-      <p *ngIf=" alerte.alertes_niveaux_id == '4'" ><ion-icon size="large" color="danger" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="danger"name="radio-button-on-outline"></ion-icon></p>
-      <p *ngIf=" alerte.alertes_niveaux_id == '3'" ><ion-icon size="large" color="warning" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="warning"name="radio-button-on-outline"></ion-icon></p>
-      <p *ngIf=" alerte.alertes_niveaux_id == '2'" ><ion-icon size="large" color="success" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="success" name="radio-button-on-outline"></ion-icon></p>
-      <p *ngIf=" alerte.alertes_niveaux_id == '1'" ><ion-icon size="large" color="medium" name="alert-circle-outline"></ion-icon><ion-icon size="large" color="medium"name="radio-button-on-outline"></ion-icon></p>
-      <ion-card-title>{{ alerte.alertes_libelle }} </ion-card-title>
+      <p *ngIf=" alerte.alertes_niveaux_id == '4'">
+        <ion-icon
+          size="large"
+          color="danger"
+          name="alert-circle-outline"
+        ></ion-icon
+        ><ion-icon
+          size="large"
+          color="danger"
+          name="radio-button-on-outline"
+        ></ion-icon>
+      </p>
+      <p *ngIf=" alerte.alertes_niveaux_id == '3'">
+        <ion-icon
+          size="large"
+          color="warning"
+          name="alert-circle-outline"
+        ></ion-icon
+        ><ion-icon
+          size="large"
+          color="warning"
+          name="radio-button-on-outline"
+        ></ion-icon>
+      </p>
+      <p *ngIf=" alerte.alertes_niveaux_id == '2'">
+        <ion-icon
+          size="large"
+          color="success"
+          name="alert-circle-outline"
+        ></ion-icon
+        ><ion-icon
+          size="large"
+          color="success"
+          name="radio-button-on-outline"
+        ></ion-icon>
+      </p>
+      <p *ngIf=" alerte.alertes_niveaux_id == '1'">
+        <ion-icon
+          size="large"
+          color="medium"
+          name="alert-circle-outline"
+        ></ion-icon
+        ><ion-icon
+          size="large"
+          color="medium"
+          name="radio-button-on-outline"
+        ></ion-icon>
+      </p>
+      <ion-card-title class="title"
+        >{{ alerte.alertes_libelle }}
+      </ion-card-title>
     </ion-card-header>
 
-    <ion-card-content> {{ alerte.alertes_description }} </ion-card-content>
-    <ion-button (click)="DeleteAlerte(alerte.alertes_id,alerte.alertes_libelle)"><ion-icon name="trash-outline"></ion-icon></ion-button>
-    <ion-button (click)="UpdateAlerte(alerte)"><ion-icon name="create-outline"></ion-icon></ion-button>
+    <ion-card-content class="content">
+      {{ alerte.alertes_description }}
+    </ion-card-content>
+    <div class="button">
+      <ion-button
+        color="danger"
+        (click)="DeleteAlerte(alerte.alertes_id,alerte.alertes_libelle)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="UpdateAlerte(alerte)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </div>
   </ion-card>
   <ion-fab vertical="top" horizontal="end" slot="fixed">
-
-  <ion-fab-button color="success" (click)="addAlerte()"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button color="success" (click)="addAlerte()"
+      ><ion-icon name="add-outline"></ion-icon
+    ></ion-fab-button>
   </ion-fab>
 </ion-content>
