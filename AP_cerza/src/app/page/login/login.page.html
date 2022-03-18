@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ionic Forms</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate class="mt-3">
+    <center>
+      <ion-item lines="full" class=" w-50">
+        <ion-label position="floating">Login</ion-label>
+        <ion-input formControlName="login" type="text"></ion-input>
+      </ion-item>
+
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.login.errors?.required">
+        Login est obligatoir
+      </span>
+
+
+      <ion-item lines="full" class=" w-50">
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input maxlength="10" formControlName="password" type="password" required></ion-input>
+      </ion-item>
+
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+        Password obligatoir
+      </span>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="danger" expand="block" class="w-50">Connexion</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <span class="error ion-padding" *ngIf="Connexion">
+        Erreur login
+      </span>
+    </center>
+  </form>
+</ion-content>

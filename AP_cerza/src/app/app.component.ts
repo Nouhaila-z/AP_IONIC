@@ -13,6 +13,10 @@ export class AppComponent {
     { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  public users = [
+    {title: 'Avertissement', url: '/avertissement', icon: 'warning'},
+    {title: 'Mission', url: '/mission', icon: 'directions_run'},
+    {title: 'Avertissement', url: '/avertissement', icon: 'notification_active'},
+  ]
 }
