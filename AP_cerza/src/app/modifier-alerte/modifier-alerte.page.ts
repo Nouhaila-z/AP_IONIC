@@ -38,6 +38,11 @@ export class ModifierAlertePage {
     this.alerte.alertes_niveaux_id = SelectedValue;
   }
 
+  closeModals()
+  {
+    this.modalCtrl.dismiss(this.ModifierAlerte);
+  }
+
   ionViewDidEnter() {
     this.fetchUsers();
   }

@@ -34,6 +34,10 @@ export class AjouterAlertePage {
     this.fetchUsers();
   }
 
+  closeModals()
+  {
+    this.modalCtrl.dismiss(this.alerte);
+  }
   fetchUsers() {
 
     this.http.get("http://localhost:3000/alertes").subscribe((res: any) => {
