@@ -34,6 +34,10 @@ export class ModifierAlertePage {
     this.alerte = this.navparams.data;
   }
 
+  ChangeNiveauAlerte(SelectedValue){
+    this.alerte.alertes_niveaux_id = SelectedValue;
+  }
+
   ionViewDidEnter() {
     this.fetchUsers();
   }

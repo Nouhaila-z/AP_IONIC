@@ -41,41 +41,24 @@ export class AlertesPage {
     this.modalCtrl.create({ component: ModifierAlertePage, componentProps: alerte }).then(modalres => { modalres.present(); modalres.onDidDismiss().then(res => { if (res.data != null) { this.afficherAlertes(); } }) })
   }
 
-  async DeleteAlerte (id, libelle)
-  {
-  await this.alertController.create({
-
-    header: "Supprimer l'alerte",
-
-    subHeader: libelle,
-
-    message: "Voulez-vous vraiment supprimer l'alerte ?",
-
-    buttons: [
-
-      {
-        text: "Oui", handler: () => {
-
-
-
-          this.http.delete(`http://localhost:3000/alertes/${id}`,).subscribe((res: any) => {
-            this.afficherAlertes();
-
-            this.toastCtrl.create({ duration: 3000, message: "L'alerte à bien été supprimée." }).then(t => t.present());
-
-          });
-
+  async DeleteAlerte(id, libelle) {
+    await this.alertController.create({
+      header: "Supprimer l'alerte",
+      subHeader: libelle,
+      message: "Voulez-vous vraiment supprimer l'alerte ?",
+      buttons: [
+        {
+          text: "Oui", handler: () => {
+            this.http.delete(`http://localhost:3000/alertes/${id}`,).subscribe((res: any) => {
+              this.afficherAlertes();
+              this.toastCtrl.create({ duration: 3000, message: "L'alerte à bien été supprimée." }).then(t => t.present());
+            });
+          }
+        },
+        {
+          text: "Non"
         }
-
-      },
-
-      {
-
-        text: "Non"
-
-      }
-    ]
-
-  }).then(res => res.present());
-
-}}
+      ]
+    }).then(res => res.present());
+  }
+}

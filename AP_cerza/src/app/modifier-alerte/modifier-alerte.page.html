@@ -15,7 +15,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Gravité</ion-label>
-      <ion-select [(ngModel)]="alerte.alertes_niveaux_id" value="alertes_niveaux_id" okText="Valider" cancelText="Annuler">
+      <ion-select  value="{{alertes_niveaux_id}}" (ionChange)="ChangeNiveauAlerte($event.detail.value)" okText="Valider" cancelText="Annuler">
         <ion-select-option value="1">Faible</ion-select-option>
         <ion-select-option value="2">Modéré</ion-select-option>
         <ion-select-option value="3">Sévère</ion-select-option>
