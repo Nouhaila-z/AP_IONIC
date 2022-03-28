@@ -32,9 +32,6 @@ app.use('/users', users);
 app.use('/login',login)
 
 
-
-
-
 /* Error handler middleware */
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;

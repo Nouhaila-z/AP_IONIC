@@ -1,7 +1,7 @@
 const db = require("./db");
 const helper = require("../helper");
 const config = require("../config");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 //afficher toutes les infos par pages
 async function getUsers(page = 1) {
