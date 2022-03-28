@@ -1,0 +1,23 @@
+.card {
+    background-color: rgb(250, 250, 250);
+    box-shadow: 60px -16px #FE9C3F;
+    margin-bottom: 50px;
+    border: solid 1px;
+}
+
+.card .title{
+    color: #FE9C3F;
+    font-size: 1.5rem;
+}
+
+.card .content {
+    color: black
+}
+
+.card .button{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: #f8d9bc;
+}
+

@@ -5,7 +5,7 @@ const config = require("../config");
 //afficher toutes les infos par pages
 async function getAlertes(page = 1) {
   const offset = helper.getOffset(page, config.listPerPage);
-  const rows = await db.query(`SELECT * from alertes LIMIT ?,?`, [
+  const rows = await db.query(`SELECT * from alertes ORDER BY alertes_niveaux_id DESC LIMIT ?,?`, [
     offset,
     config.listPerPage,
   ]);
@@ -17,6 +17,7 @@ async function getAlertes(page = 1) {
     meta,
   };
 }
+
 
 //afficher un animal par id
 async function getAlerteId(id) {

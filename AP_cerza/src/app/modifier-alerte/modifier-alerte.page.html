@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-title>Modifier Alerte</ion-title>
+    <div class="retour">
+      <ion-icon (click)="closeModals()" name="chevron-back-outline"></ion-icon> <p>Retour</p>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-content [fullscreen]="true">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="alerte.alertes_libelle" placeholder="alerte.alertes_libelle"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="alerte.alertes_description" placeholder="alerte.alertes_description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gravité</ion-label>
+      <ion-select  value="{{alertes_niveaux_id}}" (ionChange)="ChangeNiveauAlerte($event.detail.value)" okText="Valider" cancelText="Annuler">
+        <ion-select-option value="1">Faible</ion-select-option>
+        <ion-select-option value="2">Modéré</ion-select-option>
+        <ion-select-option value="3">Sévère</ion-select-option>
+        <ion-select-option value="4">Crise</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="full" color="success"(click)="submit()">Modifier</ion-button>
+
+</ion-content> 

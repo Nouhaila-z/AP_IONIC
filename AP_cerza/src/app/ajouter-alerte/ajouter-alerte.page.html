@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar class="header">
+    <ion-title>Create Alerte</ion-title>
+    <div class="retour">
+      <ion-icon (click)="closeModals()" name="chevron-back-outline"></ion-icon> <p>Retour</p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-content [fullscreen]="true">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="alerte.alertes_libelle" placeholder="Libelle"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="alerte.alertes_description" placeholder="Description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gravité</ion-label>
+      <ion-select [(ngModel)]="alerte.alertes_niveaux_id" value="1" okText="Valider" cancelText="Annuler">
+        <ion-select-option value="1">Faible</ion-select-option>
+        <ion-select-option value="2">Modéré</ion-select-option>
+        <ion-select-option value="3">Sévère</ion-select-option>
+        <ion-select-option value="4">Crise</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="full" color="success"(click)="submit()">Créer</ion-button>
+
+</ion-content> 

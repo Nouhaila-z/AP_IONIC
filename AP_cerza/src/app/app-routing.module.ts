@@ -2,15 +2,22 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+
+
   {
     path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    loadChildren: () => import('./alertes/alertes.module').then( m => m.AlertesPageModule)
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: 'ajouter-alerte',
+    loadChildren: () => import('./ajouter-alerte/ajouter-alerte.module').then( m => m.AjouterAlertePageModule)
+  },
+  {
+    path: 'modifier-alerte',
+    loadChildren: () => import('./modifier-alerte/modifier-alerte.module').then( m => m.ModifierAlertePageModule)
   }
+
+
 ];
 
 @NgModule({
